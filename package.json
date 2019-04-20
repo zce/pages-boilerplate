@@ -21,7 +21,9 @@
     "url": "https://zce.me"
   },
   "scripts": {
-    "lint": "standard src --fix",
+    "lint:scss": "csscomb src",
+    "lint:js": "standard src/**/*.js gulpfile.js --fix",
+    "lint": "yarn lint:scss && yarn lint:js",
     "clean": "gulp clean",
     "compile": "gulp compile",
     "serve": "gulp serve",
@@ -39,6 +41,7 @@
     "autoprefixer": "^9.5.1",
     "browser-sync": "^2.26.3",
     "bs-html-injector": "^3.0.3",
+    "csscomb": "^4.3.0",
     "cssnano": "^4.1.10",
     "del": "^4.1.0",
     "gulp": "^4.0.0",

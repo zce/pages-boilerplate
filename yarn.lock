@@ -531,6 +531,14 @@
     "@babel/helper-regex" "^7.4.3"
     regexpu-core "^4.5.4"
 
+"@babel/polyfill@^7.4.0":
+  version "7.4.3"
+  resolved "http://registry.npm.taobao.org/@babel/polyfill/download/@babel/polyfill-7.4.3.tgz#332dc6f57b718017c3a8b37b4eea8aa6eeac1187"
+  integrity sha1-My3G9XtxgBfDqLN7TuqKpu6sEYc=
+  dependencies:
+    core-js "^2.6.5"
+    regenerator-runtime "^0.13.2"
+
 "@babel/preset-env@^7.4.3":
   version "7.4.3"
   resolved "http://registry.npm.taobao.org/@babel/preset-env/download/@babel/preset-env-7.4.3.tgz#e71e16e123dc0fbf65a52cbcbcefd072fbd02880"
@@ -1903,6 +1911,11 @@ core-js@3.0.1:
   resolved "http://registry.npm.taobao.org/core-js/download/core-js-3.0.1.tgz#1343182634298f7f38622f95e73f54e48ddf4738"
   integrity sha1-E0MYJjQpj384Yi+V5z9U5I3fRzg=
 
+core-js@^2.6.5:
+  version "2.6.5"
+  resolved "http://registry.npm.taobao.org/core-js/download/core-js-2.6.5.tgz#44bc8d249e7fb2ff5d00e0341a7ffb94fbf67895"
+  integrity sha1-RLyNJJ5/sv9dAOA0Gn/7lPv2eJU=
+
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
   resolved "http://registry.npm.taobao.org/core-util-is/download/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
@@ -2014,6 +2027,18 @@ css-what@^2.1.2:
   version "2.1.3"
   resolved "http://registry.npm.taobao.org/css-what/download/css-what-2.1.3.tgz#a6d7604573365fe74686c3f311c56513d88285f2"
   integrity sha1-ptdgRXM2X+dGhsPzEcVlE9iChfI=
+
+csscomb@^4.3.0:
+  version "4.3.0"
+  resolved "http://registry.npm.taobao.org/csscomb/download/csscomb-4.3.0.tgz#8dbc743e66b5190ef57ea0c928c478a6b9592c93"
+  integrity sha1-jbx0Pma1GQ71fqDJKMR4prlZLJM=
+  dependencies:
+    "@babel/polyfill" "^7.4.0"
+    gonzales-pe "4.2.4"
+    minimatch "3.0.4"
+    minimist "1.2.0"
+    vow "0.4.19"
+    vow-fs "0.3.6"
 
 cssesc@^2.0.0:
   version "2.0.0"
@@ -3716,6 +3741,13 @@ glogg@^1.0.0:
   integrity sha1-LX3XAr7aIus7/634gGltpthGMT8=
   dependencies:
     sparkles "^1.0.0"
+
+gonzales-pe@4.2.4:
+  version "4.2.4"
+  resolved "http://registry.npm.taobao.org/gonzales-pe/download/gonzales-pe-4.2.4.tgz#356ae36a312c46fe0f1026dd6cb539039f8500d2"
+  integrity sha1-NWrjajEsRv4PECbdbLU5A5+FANI=
+  dependencies:
+    minimist "1.1.x"
 
 got@^7.0.0:
   version "7.1.0"
@@ -5521,7 +5553,7 @@ mimic-response@^1.0.0:
   resolved "http://registry.npm.taobao.org/mimic-response/download/mimic-response-1.0.1.tgz#4923538878eef42063cb8a3e3b0798781487ab1b"
   integrity sha1-SSNTiHju9CBjy4o+OweYeBSHqxs=
 
-"minimatch@2 || 3", minimatch@^3.0.2, minimatch@^3.0.3, minimatch@^3.0.4, minimatch@~3.0.2:
+"minimatch@2 || 3", minimatch@3.0.4, minimatch@^3.0.2, minimatch@^3.0.3, minimatch@^3.0.4, minimatch@~3.0.2:
   version "3.0.4"
   resolved "http://registry.npm.taobao.org/minimatch/download/minimatch-3.0.4.tgz#5166e286457f03306064be5497e8dbb0c3d32083"
   integrity sha1-UWbihkV/AzBgZL5Ul+jbsMPTIIM=
@@ -5533,7 +5565,12 @@ minimist@0.0.8:
   resolved "http://registry.npm.taobao.org/minimist/download/minimist-0.0.8.tgz#857fcabfc3397d2625b8228262e86aa7a011b05d"
   integrity sha1-hX/Kv8M5fSYluCKCYuhqp6ARsF0=
 
-minimist@^1.1.0, minimist@^1.1.3, minimist@^1.2.0:
+minimist@1.1.x:
+  version "1.1.3"
+  resolved "http://registry.npm.taobao.org/minimist/download/minimist-1.1.3.tgz#3bedfd91a92d39016fcfaa1c681e8faa1a1efda8"
+  integrity sha1-O+39kaktOQFvz6ocaB6Pqhoe/ag=
+
+minimist@1.2.0, minimist@^1.1.0, minimist@^1.1.3, minimist@^1.2.0:
   version "1.2.0"
   resolved "http://registry.npm.taobao.org/minimist/download/minimist-1.2.0.tgz#a35008b20f41383eec1fb914f4cd5df79a264284"
   integrity sha1-o1AIsg9BOD7sH7kU9M1d95omQoQ=
@@ -7005,6 +7042,11 @@ regenerate@^1.4.0:
   version "1.4.0"
   resolved "http://registry.npm.taobao.org/regenerate/download/regenerate-1.4.0.tgz#4a856ec4b56e4077c557589cae85e7a4c8869a11"
   integrity sha1-SoVuxLVuQHfFV1icroXnpMiGmhE=
+
+regenerator-runtime@^0.13.2:
+  version "0.13.2"
+  resolved "http://registry.npm.taobao.org/regenerator-runtime/download/regenerator-runtime-0.13.2.tgz#32e59c9a6fb9b1a4aff09b4930ca2d4477343447"
+  integrity sha1-MuWcmm+5saSv8JtJMMotRHc0NEc=
 
 regenerator-transform@^0.13.4:
   version "0.13.4"
@@ -8485,6 +8527,11 @@ utils-merge@1.0.1:
   resolved "http://registry.npm.taobao.org/utils-merge/download/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
   integrity sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
 
+uuid@^2.0.2:
+  version "2.0.3"
+  resolved "http://registry.npm.taobao.org/uuid/download/uuid-2.0.3.tgz#67e2e863797215530dff318e5bf9dcebfd47b21a"
+  integrity sha1-Z+LoY3lyFVMN/zGOW/nc6/1Hsho=
+
 uuid@^3.0.1, uuid@^3.3.2:
   version "3.3.2"
   resolved "http://registry.npm.taobao.org/uuid/download/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
@@ -8624,6 +8671,28 @@ vinyl@^2.0.0:
     cloneable-readable "^1.0.0"
     remove-trailing-separator "^1.0.1"
     replace-ext "^1.0.0"
+
+vow-fs@0.3.6:
+  version "0.3.6"
+  resolved "http://registry.npm.taobao.org/vow-fs/download/vow-fs-0.3.6.tgz#2d4c59be22e2bf2618ddf597ab4baa923be7200d"
+  integrity sha1-LUxZviLivyYY3fWXq0uqkjvnIA0=
+  dependencies:
+    glob "^7.0.5"
+    uuid "^2.0.2"
+    vow "^0.4.7"
+    vow-queue "^0.4.1"
+
+vow-queue@^0.4.1:
+  version "0.4.3"
+  resolved "http://registry.npm.taobao.org/vow-queue/download/vow-queue-0.4.3.tgz#4ba8f64b56e9212c0dbe57f1405aeebd54cce78d"
+  integrity sha1-S6j2S1bpISwNvlfxQFruvVTM540=
+  dependencies:
+    vow "^0.4.17"
+
+vow@0.4.19, vow@^0.4.17, vow@^0.4.7:
+  version "0.4.19"
+  resolved "http://registry.npm.taobao.org/vow/download/vow-0.4.19.tgz#cc5ef4d6bb6972d830830a7c9ecf8ad834a7c525"
+  integrity sha1-zF701rtpctgwgwp8ns+K2DSnxSU=
 
 whatwg-url-compat@~0.6.5:
   version "0.6.5"

@@ -10,9 +10,9 @@ body {
 }
 
 .jumbotron {
+  margin-bottom: 0;
   padding-top: $jumbotron-padding;
   padding-bottom: $jumbotron-padding;
-  margin-bottom: 0;
   background-color: $jumbotron-bg;
 }
 @media (min-width: 768px) {
@@ -40,6 +40,5 @@ footer {
 }
 
 footer p {
-  margin-bottom: .25rem;
+  margin-bottom: 0.25rem;
 }
-
