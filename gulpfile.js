@@ -110,7 +110,7 @@ const upload = () => {
   return src('**', { cwd: config.dest })
     .pipe($.plumber())
     .pipe($.ghPages({
-      cacheDir: config.temp,
+      cacheDir: `${config.temp}/publish`,
       branch: argv.branch === undefined ? 'gh-pages' : argv.branch
     }))
 }
