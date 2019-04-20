@@ -1,6 +1,7 @@
 {
   "name": "pages-boilerplate",
   "version": "0.1.0",
+  "private": true,
   "description": "A boilerplate for static pages",
   "keywords": [
     "pages-boilerplate",
