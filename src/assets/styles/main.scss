@@ -14,31 +14,53 @@ body {
   padding-top: $jumbotron-padding;
   padding-bottom: $jumbotron-padding;
   background-color: $jumbotron-bg;
-}
-@media (min-width: 768px) {
-  .jumbotron {
+  @media (min-width: 768px) {
     padding-top: 6rem;
     padding-bottom: 6rem;
   }
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  .jumbotron-heading {
+    font-weight: 300;
+  }
+  .container {
+    max-width: 40rem;
+  }
 }
 
-.jumbotron p:last-child {
-  margin-bottom: 0;
-}
 
-.jumbotron-heading {
-  font-weight: 300;
-}
-
-.jumbotron .container {
-  max-width: 40rem;
-}
-
-footer {
+.site-footer {
   padding-top: 3rem;
   padding-bottom: 3rem;
-}
+  font-family: monospace;
 
-footer p {
-  margin-bottom: 0.25rem;
+  span {
+    flex-basis: 0;
+    flex-grow: 1;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  @keyframes beat {
+    from,
+    to {
+      transform: none;
+    }
+
+    50% {
+      transform: scale3d(1.4, 1.4, 1.4);
+    }
+  }
+
+  .heart {
+    display: inline-block;
+    color: #f20;
+    font-weight: normal;
+    font-style: normal;
+    animation: beat 0.4s ease-in-out infinite;
+  }
 }

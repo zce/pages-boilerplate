@@ -32,6 +32,11 @@
     "start": "gulp start",
     "deploy": "gulp deploy"
   },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
   "browserslist": [
     "last 1 version",
     "> 1%",
