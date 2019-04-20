@@ -31,6 +31,12 @@
     "start": "gulp start",
     "deploy": "gulp deploy"
   },
+  "browserslist": [
+    "last 1 version",
+    "> 1%",
+    "maintained node versions",
+    "not dead"
+  ],
   "dependencies": {
     "bootstrap": "^4.3.1",
     "jquery": "^3.4.0"
