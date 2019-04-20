@@ -11,6 +11,7 @@ const pkg = require('./package')
 const $ = gulpLoadPlugins()
 const bs = browserSync.create()
 const argv = minimist(process.argv.slice(2))
+const isProd = process.env.NODE_ENV === 'production'
 
 const config = {
   src: 'src',
@@ -28,8 +29,6 @@ const config = {
     fonts: 'assets/fonts/**/*.{eot,svg,ttf,woff,woff2}'
   }
 }
-
-const isProd = process.env.NODE_ENV === 'production'
 
 const clean = () => {
   return del([ config.temp, config.dest ])
