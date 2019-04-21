@@ -15,7 +15,7 @@ notifications:
 
 script:
   - yarn lint
-  - yarn build
+  - yarn build --production
 
 # https://docs.travis-ci.com/user/deployment/pages/
 deploy:

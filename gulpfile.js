@@ -15,8 +15,10 @@ const pkg = require('./package')
 const $ = gulpLoadPlugins()
 const bs = browserSync.create()
 const argv = minimist(process.argv.slice(2))
-// TODO: production
-const isProd = process.env.NODE_ENV === 'production'
+
+const isProd = process.env.NODE_ENV
+  ? process.env.NODE_ENV === 'production'
+  : argv.production || argv.prod || false
 
 const config = {
   src: 'src',
@@ -78,35 +80,44 @@ const page = () => {
 }
 
 const useref = () => {
+  // https://beautifier.io
+  const beautifyOpts = { indent_size: 2, max_preserve_newlines: 1 }
+  // https://github.com/mishoo/UglifyJS2#minify-options
+  const uglifyOpts = { compress: { drop_console: true } }
+  // https://cssnano.co/guides/
+  const postcssOpts = [ cssnano({ safe: true, autoprefixer: false }) ]
+  // https://github.com/kangax/html-minifier#options-quick-reference
+  const htmlminOpts = {
+    collapseWhitespace: true,
+    minifyCSS: true,
+    minifyJS: uglifyOpts,
+    processConditionalComments: true,
+    removeComments: true,
+    removeEmptyAttributes: true,
+    removeScriptTypeAttributes: true,
+    removeStyleLinkTypeAttributes: true
+  }
+
   return gulp.src(paths.pages, { cwd: config.temp, base: config.temp })
     .pipe($.plumber())
     .pipe($.useref({ searchPath: [ config.temp, config.src, '.' ] }))
-    .pipe($.if(/\.js$/, $.uglify({ compress: { drop_console: true } })))
-    .pipe($.if(/\.css$/, $.postcss([ cssnano({ safe: true, autoprefixer: false }) ])))
-    .pipe($.if(/\.html$/, $.htmlmin({
-      collapseWhitespace: true,
-      minifyCSS: true,
-      minifyJS: { compress: { drop_console: true } },
-      processConditionalComments: true,
-      removeComments: true,
-      removeEmptyAttributes: true,
-      removeScriptTypeAttributes: true,
-      removeStyleLinkTypeAttributes: true
-    })))
+    .pipe($.if(/\.js$/, $.if(isProd, $.uglify(uglifyOpts), $.beautify.js(beautifyOpts))))
+    .pipe($.if(/\.css$/, $.if(isProd, $.postcss(postcssOpts), $.beautify.css(beautifyOpts))))
+    .pipe($.if(/\.html$/, $.if(isProd, $.htmlmin(htmlminOpts), $.beautify.html(beautifyOpts))))
     .pipe(gulp.dest(config.dest))
 }
 
 const image = () => {
   return gulp.src(paths.images, { cwd: config.src, base: config.src, since: gulp.lastRun(image) })
     .pipe($.plumber())
-    .pipe($.imagemin())
+    .pipe($.if(isProd, $.imagemin()))
     .pipe(gulp.dest(config.dest))
 }
 
 const font = () => {
   return gulp.src(paths.fonts, { cwd: config.src, base: config.src })
     .pipe($.plumber())
-    .pipe($.imagemin())
+    .pipe($.if(isProd, $.imagemin()))
     .pipe(gulp.dest(config.dest))
 }
 
@@ -118,7 +129,7 @@ const extra = () => {
 const measure = () => {
   return gulp.src('**', { cwd: config.dest })
     .pipe($.plumber())
-    .pipe($.size({ title: 'build', gzip: true }))
+    .pipe($.size({ title: `${isProd ? 'Prodcuction' : 'Development'} mode build`, gzip: true }))
 }
 
 const upload = () => {

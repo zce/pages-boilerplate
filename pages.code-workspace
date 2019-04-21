@@ -1,0 +1,24 @@
+{
+	"folders": [
+		{
+      "name": "src",
+			"path": "src"
+		},
+		{
+      "name": "dist",
+			"path": "dist"
+		},
+		{
+      "name": "root",
+			"path": "."
+		}
+	],
+	"settings": {
+    "explorer.openEditors.visible": 0,
+    "files.exclude": {
+      "node_modules": true,
+      "temp": true,
+      "pages.code-workspace": true
+    }
+  }
+}

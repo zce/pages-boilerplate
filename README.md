@@ -25,7 +25,8 @@ $ yarn # or npm install
 $ yarn <task> [options]
 
 # e.g.
-$ yarn serve --open --port 5210
+$ yarn serve --port 5210
+$ yarn build --production
 ```
 
 ## All Tasks
@@ -54,6 +55,9 @@ Running an automated development server.
 ### build
 
 Build the entire project to get releasable files.
+
+- `production`: Production mode, Default: `false`
+- `prod`: Alias to `production`
 
 ### start
 
