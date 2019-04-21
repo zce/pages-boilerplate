@@ -118,9 +118,17 @@ Deploy build results to [GitHub Pages](https://pages.github.com).
 $ yarn add @babel/core @babel/preset-env autoprefixer browser-sync bs-html-injector csscomb cssnano del gulp gulp-babel gulp-gh-pages gulp-htmlmin gulp-if gulp-imagemin gulp-load-plugins gulp-plumber gulp-postcss gulp-sass gulp-size gulp-swig gulp-uglify gulp-useref minimist standard --dev
 ```
 
+## Todos
+
+- [ ] use pump for gulp
+- [ ] data dir
+- [ ] content dir
+
 ## References
 
 - https://github.com/gulpjs/gulp/tree/master/docs/why-use-pump
+- https://github.com/colynb/gulp-swig
+- https://github.com/BrowserSync/recipes/tree/master/recipes/gulp.swig
 
 ## Contributing
 
