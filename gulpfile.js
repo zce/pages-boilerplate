@@ -4,7 +4,7 @@ const gulpLoadPlugins = require('gulp-load-plugins')
 const minimist = require('minimist')
 
 const del = require('del')
-const csscomb = require('csscomb')
+const Comb = require('csscomb')
 const standard = require('standard')
 const browserSync = require('browser-sync')
 const autoprefixer = require('autoprefixer')
@@ -46,7 +46,7 @@ const clean = () => {
 }
 
 const lint = done => {
-  const comb = new csscomb(require('./.csscomb.json'))
+  const comb = new Comb(require('./.csscomb.json'))
   comb.processPath(config.src)
   standard.lintFiles(paths.scripts, { cwd: config.src, fix: true }, done)
 }
@@ -71,7 +71,7 @@ const script = () => {
 const page = () => {
   return gulp.src(paths.pages, { cwd: config.src, base: config.src, ignore: [ '{layouts,partials}/**' ] })
     .pipe($.plumber())
-    .pipe($.swig({ data: { site: data } }))//.on('error', e => console.error(e))
+    .pipe($.swig({ data: { site: data } }))
     .pipe(gulp.dest(config.temp))
     // use bs-html-injector
     // .pipe(bs.reload({ stream: true }))
