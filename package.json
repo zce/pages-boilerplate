@@ -22,10 +22,8 @@
     "url": "https://zce.me"
   },
   "scripts": {
-    "lint:scss": "csscomb src",
-    "lint:js": "standard src/**/*.js gulpfile.js --fix",
-    "lint": "yarn lint:scss && yarn lint:js",
     "clean": "gulp clean",
+    "lint": "gulp lint",
     "compile": "gulp compile",
     "serve": "gulp serve",
     "build": "gulp build",
