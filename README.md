@@ -127,6 +127,7 @@ $ yarn add @babel/core @babel/preset-env autoprefixer browser-sync bs-html-injec
 ## References
 
 - https://github.com/gulpjs/gulp/tree/master/docs/why-use-pump
+- https://www.jianshu.com/p/0572e8e115da
 - https://github.com/colynb/gulp-swig
 - https://github.com/gulpjs/gulp/blob/master/docs/recipes/templating-with-swig-and-yaml-front-matter.md
 - https://github.com/BrowserSync/recipes/tree/master/recipes/gulp.swig

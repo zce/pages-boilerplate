@@ -73,7 +73,7 @@ const script = () => {
 const page = () => {
   return gulp.src(paths.pages, { cwd: config.src, base: config.src, ignore: [ '{layouts,partials}/**' ] })
     .pipe($.plumber())
-    .pipe($.swig({ data: { site: data } }))
+    .pipe($.swig({ defaults: { cache: false }, data: { site: data }}))
     .pipe(gulp.dest(config.temp))
     // use bs-html-injector
     // .pipe(bs.reload({ stream: true }))
