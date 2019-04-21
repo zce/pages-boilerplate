@@ -1,33 +1,40 @@
-const { src, dest, series, parallel, watch, lastRun } = require('gulp')
+const gulp = require('gulp')
 const gulpLoadPlugins = require('gulp-load-plugins')
+const minimist = require('minimist')
 const del = require('del')
 const browserSync = require('browser-sync')
 const autoprefixer = require('autoprefixer')
 const cssnano = require('cssnano')
-const minimist = require('minimist')
 
 const pkg = require('./package')
 
 const $ = gulpLoadPlugins()
 const bs = browserSync.create()
 const argv = minimist(process.argv.slice(2))
+// TODO: production
 const isProd = process.env.NODE_ENV === 'production'
 
 const config = {
   src: 'src',
   dest: 'dist',
-  temp: 'temp',
   public: 'public',
-  data: {
-    title: pkg.name
-  },
-  paths: {
-    styles: 'assets/styles/**/*.scss',
-    scripts: 'assets/scripts/**/*.js',
-    pages: '**/*.html',
-    images: 'assets/images/**/*.{jpg,jpeg,png,gif,svg}',
-    fonts: 'assets/fonts/**/*.{eot,svg,ttf,woff,woff2}'
-  }
+  temp: 'temp'
+}
+
+const data = {
+  name: pkg.name,
+  version: pkg.version,
+  homepage: pkg.homepage,
+  author: pkg.author,
+  date: new Date()
+}
+
+const paths = {
+  pages: '**/*.html',
+  styles: 'assets/styles/**/*.scss',
+  scripts: 'assets/scripts/**/*.js',
+  images: 'assets/images/**/*.{jpg,jpeg,png,gif,svg}',
+  fonts: 'assets/fonts/**/*.{eot,svg,ttf,woff,woff2}'
 }
 
 const clean = () => {
@@ -35,34 +42,33 @@ const clean = () => {
 }
 
 const style = () => {
-  // TODO: support less, sass
-  return src(config.paths.styles, { cwd: config.src, base: config.src, sourcemaps: !isProd })
-    .pipe($.plumber())
-    .pipe($.sass.sync({ outputStyle: 'expanded', precision: 10, includePaths: ['.'] }).on('error', $.sass.logError))
+  return gulp.src(paths.styles, { cwd: config.src, base: config.src, sourcemaps: !isProd })
+    .pipe($.plumber({ errorHandler: $.sass.logError }))
+    .pipe($.sass.sync({ outputStyle: 'expanded', precision: 10, includePaths: ['.'] }))
     .pipe($.postcss([ autoprefixer() ]))
-    .pipe(dest(config.temp, { sourcemaps: '.' }))
+    .pipe(gulp.dest(config.temp, { sourcemaps: '.' }))
     .pipe(bs.reload({ stream: true }))
 }
 
 const script = () => {
-  return src(config.paths.scripts, { cwd: config.src, base: config.src, sourcemaps: !isProd })
+  return gulp.src(paths.scripts, { cwd: config.src, base: config.src, sourcemaps: !isProd })
     .pipe($.plumber())
     .pipe($.babel())
-    .pipe(dest(config.temp, { sourcemaps: '.' }))
+    .pipe(gulp.dest(config.temp, { sourcemaps: '.' }))
     .pipe(bs.reload({ stream: true }))
 }
 
 const page = () => {
-  return src(config.paths.pages, { cwd: config.src, base: config.src, ignore: [ '{layouts,partials}/**' ] })
+  return gulp.src(paths.pages, { cwd: config.src, base: config.src, ignore: [ '{layouts,partials}/**' ] })
     .pipe($.plumber())
-    .pipe($.nunjucks.compile({ site: config.data }))
-    .pipe(dest(config.temp))
+    .pipe($.nunjucks.compile({ site: data }))//.on('error', e => console.error(e))
+    .pipe(gulp.dest(config.temp))
     // use bs-html-injector
     // .pipe(bs.reload({ stream: true }))
 }
 
 const useref = () => {
-  return src(config.paths.pages, { cwd: config.temp, base: config.temp })
+  return gulp.src(paths.pages, { cwd: config.temp, base: config.temp })
     .pipe($.plumber())
     .pipe($.useref({ searchPath: [ config.temp, config.src, '.' ] }))
     .pipe($.if(/\.js$/, $.uglify({ compress: { drop_console: true } })))
@@ -77,36 +83,36 @@ const useref = () => {
       removeScriptTypeAttributes: true,
       removeStyleLinkTypeAttributes: true
     })))
-    .pipe(dest(config.dest))
+    .pipe(gulp.dest(config.dest))
 }
 
 const image = () => {
-  return src(config.paths.images, { cwd: config.src, base: config.src, since: lastRun(image) })
+  return gulp.src(paths.images, { cwd: config.src, base: config.src, since: gulp.lastRun(image) })
     .pipe($.plumber())
     .pipe($.imagemin())
-    .pipe(dest(config.dest))
+    .pipe(gulp.dest(config.dest))
 }
 
 const font = () => {
-  return src(config.paths.fonts, { cwd: config.src, base: config.src })
+  return gulp.src(paths.fonts, { cwd: config.src, base: config.src })
     .pipe($.plumber())
     .pipe($.imagemin())
-    .pipe(dest(config.dest))
+    .pipe(gulp.dest(config.dest))
 }
 
 const extra = () => {
-  return src('**', { cwd: config.public, base: config.public, dot: true })
-    .pipe(dest(config.dest))
+  return gulp.src('**', { cwd: config.public, base: config.public, dot: true })
+    .pipe(gulp.dest(config.dest))
 }
 
 const measure = () => {
-  return src('**', { cwd: config.dest })
+  return gulp.src('**', { cwd: config.dest })
     .pipe($.plumber())
     .pipe($.size({ title: 'build', gzip: true }))
 }
 
 const upload = () => {
-  return src('**', { cwd: config.dest })
+  return gulp.src('**', { cwd: config.dest })
     .pipe($.plumber())
     .pipe($.ghPages({
       cacheDir: `${config.temp}/publish`,
@@ -115,11 +121,11 @@ const upload = () => {
 }
 
 const devServer = () => {
-  watch(config.paths.styles, { cwd: config.src }, style)
-  watch(config.paths.scripts, { cwd: config.src }, script)
-  watch(config.paths.pages, { cwd: config.src }, page)
-  watch([ config.paths.images, config.paths.fonts ], { cwd: config.src }, bs.reload)
-  watch('**', { cwd: config.public }, bs.reload)
+  gulp.watch(paths.styles, { cwd: config.src }, style)
+  gulp.watch(paths.scripts, { cwd: config.src }, script)
+  gulp.watch(paths.pages, { cwd: config.src }, page)
+  gulp.watch([ paths.images, paths.fonts ], { cwd: config.src }, bs.reload)
+  gulp.watch('**', { cwd: config.public }, bs.reload)
 
   bs.init({
     notify: false,
@@ -142,14 +148,14 @@ const distServer = () => {
   })
 }
 
-const compile = parallel(style, script, page)
+const compile = gulp.parallel(style, script, page)
 
-const serve = series(compile, devServer)
+const serve = gulp.series(compile, devServer)
 
-const build = series(clean, parallel(series(compile, useref), image, font, extra), measure)
+const build = gulp.series(clean, gulp.parallel(gulp.series(compile, useref), image, font, extra), measure)
 
-const start = series(build, distServer)
+const start = gulp.series(build, distServer)
 
-const deploy = series(build, upload)
+const deploy = gulp.series(build, upload)
 
 module.exports = { clean, compile, serve, build, start, deploy }
