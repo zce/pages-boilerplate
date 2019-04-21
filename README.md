@@ -10,9 +10,8 @@
 
 ## Getting Started
 
-### Clone Repo
-
 ```shell
+# clone repo
 $ git clone https://github.com/zce/pages-boilerplate.git my-pages
 $ cd my-pages
 # install deps
@@ -79,37 +78,37 @@ Deploy build results to [GitHub Pages](https://pages.github.com).
 ## Folder Structure
 
 ```
-└── my-project ··································································· proj root
-   ├─ public ····································································· static
-   │  └─ .gitkeep ································································ static file (unprocessed)
-   ├─ src ········································································ source
-   │  ├─ assets ·································································· assets
-   │  │  ├─ fonts ································································ fonts
-   │  │  │  └─ .gitkeep ·························································· font file
-   │  │  ├─ images ······························································· images
-   │  │  │  └─ .gitkeep ·························································· image file
-   │  │  ├─ scripts ······························································ scripts (babel / uglify)
-   │  │  │  └─ .gitkeep ·························································· script file
-   │  │  └─ styles ······························································· styles (scss / postcss)
-   │  │     ├─ _variables.scss ··················································· partial file (dont output)
-   │  │     └─ main.scss ························································· entry scss file
-   │  ├─ layouts ································································· layouts (dont output)
-   │  │  └─ basic.html ··························································· layout file
-   │  ├─ partials ································································ partials (dont output)
-   │  │  ├─ footer.html ·························································· partial file
-   │  │  └─ header.html ·························································· partial file
-   │  ├─ about.html ······························································ page file (use layout & partials)
-   │  └─ index.html ······························································ page file (use layout & partials)
-   ├─ .csscomb.json ······························································ csscomb config file
-   ├─ .editorconfig ······························································ editor config file
-   ├─ .gitignore ································································· git ignore file
-   ├─ .travis.yml ································································ travis ci config file
-   ├─ CHANGELOG.md ······························································· repo changelog
-   ├─ LICENSE ···································································· repo license
-   ├─ README.md ·································································· repo readme
-   ├─ gulpfile.js ································································ gulp tasks file
-   ├─ package.json ······························································· package file
-   └─ yarn.lock ·································································· yarn lock file
+└── my-project ······································· proj root
+   ├─ public ········································· static
+   │  └─ .gitkeep ···································· static file (unprocessed)
+   ├─ src ············································ source
+   │  ├─ assets ······································ assets
+   │  │  ├─ fonts ···································· fonts
+   │  │  │  └─ .gitkeep ······························ font file
+   │  │  ├─ images ··································· images
+   │  │  │  └─ .gitkeep ······························ image file
+   │  │  ├─ scripts ·································· scripts (babel / uglify)
+   │  │  │  └─ .gitkeep ······························ script file
+   │  │  └─ styles ··································· styles (scss / postcss)
+   │  │     ├─ _variables.scss ······················· partial file (dont output)
+   │  │     └─ main.scss ····························· entry scss file
+   │  ├─ layouts ····································· layouts (dont output)
+   │  │  └─ basic.html ······························· layout file
+   │  ├─ partials ···································· partials (dont output)
+   │  │  ├─ footer.html ······························ partial file
+   │  │  └─ header.html ······························ partial file
+   │  ├─ about.html ·································· page file (use layout & partials)
+   │  └─ index.html ·································· page file (use layout & partials)
+   ├─ .csscomb.json ·································· csscomb config file
+   ├─ .editorconfig ·································· editor config file
+   ├─ .gitignore ····································· git ignore file
+   ├─ .travis.yml ···································· travis ci config file
+   ├─ CHANGELOG.md ··································· repo changelog
+   ├─ LICENSE ········································ repo license
+   ├─ README.md ······································ repo readme
+   ├─ gulpfile.js ···································· gulp tasks file
+   ├─ package.json ··································· package file
+   └─ yarn.lock ······································ yarn lock file
 ```
 
 ## Dependencies
