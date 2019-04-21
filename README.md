@@ -78,7 +78,7 @@ Deploy build results to [GitHub Pages](https://pages.github.com).
 ## Folder Structure
 
 ```
-└── my-project ······································· proj root
+└── my-pages ········································· proj root
    ├─ public ········································· static
    │  └─ .gitkeep ···································· static file (unprocessed)
    ├─ src ············································ source
