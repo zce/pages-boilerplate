@@ -8,7 +8,7 @@
 
 > A boilerplate for static pages
 
-## Installation
+## Getting Started
 
 ### Clone Repo
 
@@ -23,11 +23,16 @@ $ yarn # or npm install
 
 ```shell
 $ yarn <task> [options]
-# if gulp globally
-$ gulp <task> [options]
+
+# e.g.
+$ yarn serve --open --port 5210
 ```
 
-## Tasks
+## All Tasks
+
+### lint
+
+Lint styles & scripts files.
 
 ### clean
 
@@ -66,6 +71,52 @@ Deploy build results to [GitHub Pages](https://pages.github.com).
 #### options
 
 - `branch`: The name of the branch you'll be pushing to, Default: `'gh-pages'`
+
+## Folder Structure
+
+```
+└── my-project ··································································· proj root
+   ├─ public ····································································· static
+   │  └─ .gitkeep ································································ static file (unprocessed)
+   ├─ src ········································································ source
+   │  ├─ assets ·································································· assets
+   │  │  ├─ fonts ································································ fonts
+   │  │  │  └─ .gitkeep ·························································· font file
+   │  │  ├─ images ······························································· images
+   │  │  │  └─ .gitkeep ·························································· image file
+   │  │  ├─ scripts ······························································ scripts (babel / uglify)
+   │  │  │  └─ .gitkeep ·························································· script file
+   │  │  └─ styles ······························································· styles (scss / postcss)
+   │  │     ├─ _variables.scss ··················································· partial file (dont output)
+   │  │     └─ main.scss ························································· entry scss file
+   │  ├─ layouts ································································· layouts (dont output)
+   │  │  └─ basic.html ··························································· layout file
+   │  ├─ partials ································································ partials (dont output)
+   │  │  ├─ footer.html ·························································· partial file
+   │  │  └─ header.html ·························································· partial file
+   │  ├─ about.html ······························································ page file (use layout & partials)
+   │  └─ index.html ······························································ page file (use layout & partials)
+   ├─ .csscomb.json ······························································ csscomb config file
+   ├─ .editorconfig ······························································ editor config file
+   ├─ .gitignore ································································· git ignore file
+   ├─ .travis.yml ································································ travis ci config file
+   ├─ CHANGELOG.md ······························································· repo changelog
+   ├─ LICENSE ···································································· repo license
+   ├─ README.md ·································································· repo readme
+   ├─ gulpfile.js ································································ gulp tasks file
+   ├─ package.json ······························································· package file
+   └─ yarn.lock ·································································· yarn lock file
+```
+
+## Dependencies
+
+```sh
+$ yarn add @babel/core @babel/preset-env autoprefixer browser-sync bs-html-injector csscomb cssnano del gulp gulp-babel gulp-gh-pages gulp-htmlmin gulp-if gulp-imagemin gulp-load-plugins gulp-plumber gulp-postcss gulp-sass gulp-size gulp-swig gulp-uglify gulp-useref minimist standard --dev
+```
+
+## References
+
+- https://github.com/gulpjs/gulp/tree/master/docs/why-use-pump
 
 ## Contributing
 

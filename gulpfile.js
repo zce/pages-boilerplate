@@ -1,7 +1,11 @@
 const gulp = require('gulp')
 const gulpLoadPlugins = require('gulp-load-plugins')
+
 const minimist = require('minimist')
+
 const del = require('del')
+const csscomb = require('csscomb')
+const standard = require('standard')
 const browserSync = require('browser-sync')
 const autoprefixer = require('autoprefixer')
 const cssnano = require('cssnano')
@@ -41,6 +45,12 @@ const clean = () => {
   return del([ config.temp, config.dest ])
 }
 
+const lint = done => {
+  const comb = new csscomb(require('./.csscomb.json'))
+  comb.processPath(config.src)
+  standard.lintFiles(paths.scripts, { cwd: config.src, fix: true }, done)
+}
+
 const style = () => {
   return gulp.src(paths.styles, { cwd: config.src, base: config.src, sourcemaps: !isProd })
     .pipe($.plumber({ errorHandler: $.sass.logError }))
@@ -61,7 +71,7 @@ const script = () => {
 const page = () => {
   return gulp.src(paths.pages, { cwd: config.src, base: config.src, ignore: [ '{layouts,partials}/**' ] })
     .pipe($.plumber())
-    .pipe($.nunjucks.compile({ site: data }))//.on('error', e => console.error(e))
+    .pipe($.swig({ data: { site: data } }))//.on('error', e => console.error(e))
     .pipe(gulp.dest(config.temp))
     // use bs-html-injector
     // .pipe(bs.reload({ stream: true }))
@@ -158,4 +168,4 @@ const start = gulp.series(build, distServer)
 
 const deploy = gulp.series(build, upload)
 
-module.exports = { clean, compile, serve, build, start, deploy }
+module.exports = { clean, lint, compile, serve, build, start, deploy }
