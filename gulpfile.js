@@ -1,8 +1,6 @@
 const gulp = require('gulp')
 const gulpLoadPlugins = require('gulp-load-plugins')
-
 const minimist = require('minimist')
-
 const del = require('del')
 const Comb = require('csscomb')
 const standard = require('standard')
@@ -10,7 +8,7 @@ const browserSync = require('browser-sync')
 const autoprefixer = require('autoprefixer')
 const cssnano = require('cssnano')
 
-const pkg = require('./package')
+const pkg = require('./package.json')
 
 const config = {
   src: 'src',
@@ -38,7 +36,6 @@ const paths = {
 const $ = gulpLoadPlugins()
 const bs = browserSync.create()
 const argv = minimist(process.argv.slice(2))
-
 const isProd = process.env.NODE_ENV
   ? process.env.NODE_ENV === 'production'
   : argv.production || argv.prod || false
@@ -73,7 +70,7 @@ const script = () => {
 const page = () => {
   return gulp.src(paths.pages, { cwd: config.src, base: config.src, ignore: [ '{layouts,partials}/**' ] })
     .pipe($.plumber())
-    .pipe($.swig({ defaults: { cache: false }, data: { site: data }}))
+    .pipe($.swig({ defaults: { cache: false }, data }))
     .pipe(gulp.dest(config.temp))
     // use bs-html-injector
     // .pipe(bs.reload({ stream: true }))
@@ -151,7 +148,7 @@ const devServer = () => {
   bs.init({
     notify: false,
     port: argv.port === undefined ? 2080 : argv.port,
-    open: argv.open === undefined ? true : argv.open,
+    open: argv.open === undefined ? false : argv.open,
     plugins: [ `bs-html-injector?files[]=${config.temp}/*.html` ],
     server: {
       baseDir: [ config.temp, config.src, config.public ],
@@ -164,7 +161,7 @@ const distServer = () => {
   bs.init({
     notify: false,
     port: argv.port === undefined ? 2080 : argv.port,
-    open: argv.open === undefined ? true : argv.open,
+    open: argv.open === undefined ? false : argv.open,
     server: config.dest
   })
 }

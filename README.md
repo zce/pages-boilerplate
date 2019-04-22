@@ -24,7 +24,7 @@ $ yarn # or npm install
 $ yarn <task> [options]
 
 # e.g.
-$ yarn serve --port 5210
+$ yarn serve --port 5210 --open
 $ yarn build --production
 ```
 
@@ -65,7 +65,7 @@ Running projects in production mode.
 #### options
 
 - `port`: Server port, Default: `2080`
-- `open`: Automatically open browser, Default: `true`
+- `open`: Automatically open browser, Default: `false`
 
 ### deploy
 
