@@ -114,7 +114,7 @@ Deploy build results to [GitHub Pages](https://pages.github.com).
 ## Dependencies
 
 ```sh
-$ yarn add @babel/core @babel/preset-env autoprefixer browser-sync bs-html-injector csscomb cssnano del gulp gulp-babel gulp-gh-pages gulp-htmlmin gulp-if gulp-imagemin gulp-load-plugins gulp-plumber gulp-postcss gulp-sass gulp-size gulp-swig gulp-uglify gulp-useref minimist standard --dev
+$ yarn add @babel/core @babel/preset-env autoprefixer browser-sync bs-html-injector csscomb cssnano del gulp gulp-babel gulp-beautify gulp-gh-pages gulp-htmlmin gulp-if gulp-imagemin gulp-load-plugins gulp-plumber gulp-postcss gulp-sass gulp-size gulp-swig gulp-uglify gulp-useref minimist standard --dev
 ```
 
 ## Todos

@@ -1128,7 +1128,7 @@ base64-js@^1.0.2:
 
 base64id@1.0.0:
   version "1.0.0"
-  resolved "http://registry.npm.taobao.org/base64id/download/base64id-1.0.0.tgz?cache=0&other_urls=http%3A%2F%2Fregistry.npm.taobao.org%2Fbase64id%2Fdownload%2Fbase64id-1.0.0.tgz#47688cb99bb6804f0e06d3e763b1c32e57d8e6b6"
+  resolved "http://registry.npm.taobao.org/base64id/download/base64id-1.0.0.tgz#47688cb99bb6804f0e06d3e763b1c32e57d8e6b6"
   integrity sha1-R2iMuZu2gE8OBtPnY7HDLlfY5rY=
 
 base@^0.11.1:
@@ -2579,9 +2579,9 @@ ee-first@1.1.1:
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
 electron-to-chromium@^1.3.124:
-  version "1.3.124"
-  resolved "http://registry.npm.taobao.org/electron-to-chromium/download/electron-to-chromium-1.3.124.tgz#861fc0148748a11b3e5ccebdf8b795ff513fa11f"
-  integrity sha1-hh/AFIdIoRs+XM69+LeV/1E/oR8=
+  version "1.3.125"
+  resolved "http://registry.npm.taobao.org/electron-to-chromium/download/electron-to-chromium-1.3.125.tgz#dbde0e95e64ebe322db0eca764d951f885a5aff2"
+  integrity sha1-294OleZOvjItsOynZNlR+IWlr/I=
 
 encodeurl@~1.0.1, encodeurl@~1.0.2:
   version "1.0.2"
@@ -2642,7 +2642,7 @@ engine.io-parser@~2.1.0, engine.io-parser@~2.1.1:
 
 engine.io@~3.2.0:
   version "3.2.1"
-  resolved "http://registry.npm.taobao.org/engine.io/download/engine.io-3.2.1.tgz?cache=0&other_urls=http%3A%2F%2Fregistry.npm.taobao.org%2Fengine.io%2Fdownload%2Fengine.io-3.2.1.tgz#b60281c35484a70ee0351ea0ebff83ec8c9522a2"
+  resolved "http://registry.npm.taobao.org/engine.io/download/engine.io-3.2.1.tgz#b60281c35484a70ee0351ea0ebff83ec8c9522a2"
   integrity sha1-tgKBw1SEpw7gNR6g6/+D7IyVIqI=
   dependencies:
     accepts "~1.3.4"
@@ -3660,7 +3660,7 @@ glob-to-regexp@^0.3.0:
   resolved "http://registry.npm.taobao.org/glob-to-regexp/download/glob-to-regexp-0.3.0.tgz#8c5a1494d2066c570cc3bfe4496175acc4d502ab"
   integrity sha1-jFoUlNIGbFcMw7/kSWF1rMTVAqs=
 
-glob-watcher@^5.0.0:
+glob-watcher@^5.0.3:
   version "5.0.3"
   resolved "http://registry.npm.taobao.org/glob-watcher/download/glob-watcher-5.0.3.tgz#88a8abf1c4d131eb93928994bc4a593c2e5dd626"
   integrity sha1-iKir8cTRMeuTkomUvEpZPC5d1iY=
@@ -3856,10 +3856,10 @@ gulp-beautify@^3.0.0:
     js-beautify "^1.8.8"
     through2 "^2.0.0"
 
-gulp-cli@^2.0.0:
-  version "2.1.0"
-  resolved "http://registry.npm.taobao.org/gulp-cli/download/gulp-cli-2.1.0.tgz#2705143ae744c9e10d894ca621ce0a3933aa2e89"
-  integrity sha1-JwUUOudEyeENiUymIc4KOTOqLok=
+gulp-cli@^2.2.0:
+  version "2.2.0"
+  resolved "http://registry.npm.taobao.org/gulp-cli/download/gulp-cli-2.2.0.tgz#5533126eeb7fe415a7e3e84a297d334d5cf70ebc"
+  integrity sha1-VTMSbut/5BWn4+hKKX0zTVz3Drw=
   dependencies:
     ansi-colors "^1.0.1"
     archy "^1.0.0"
@@ -4084,14 +4084,14 @@ gulp-util@^3.0.7, gulp-util@~3.0.8:
     through2 "^2.0.0"
     vinyl "^0.5.0"
 
-gulp@^4.0.0:
-  version "4.0.0"
-  resolved "http://registry.npm.taobao.org/gulp/download/gulp-4.0.0.tgz#95766c601dade4a77ed3e7b2b6dc03881b596366"
-  integrity sha1-lXZsYB2t5Kd+0+eyttwDiBtZY2Y=
+gulp@^4.0.1:
+  version "4.0.1"
+  resolved "http://registry.npm.taobao.org/gulp/download/gulp-4.0.1.tgz#987a38a55a7d3677f6b49e291b06bc05809f33d9"
+  integrity sha1-mHo4pVp9Nnf2tJ4pGwa8BYCfM9k=
   dependencies:
-    glob-watcher "^5.0.0"
-    gulp-cli "^2.0.0"
-    undertaker "^1.0.0"
+    glob-watcher "^5.0.3"
+    gulp-cli "^2.2.0"
+    undertaker "^1.2.1"
     vinyl-fs "^3.0.0"
 
 gulplog@^1.0.0:
@@ -4766,23 +4766,23 @@ is-object@^1.0.1:
   integrity sha1-iVJojF7C/9awPsyF52ngKQMINHA=
 
 is-path-cwd@^2.0.0:
-  version "2.0.0"
-  resolved "http://registry.npm.taobao.org/is-path-cwd/download/is-path-cwd-2.0.0.tgz#d4777a8e227a00096a31f030db3770f84b116c02"
-  integrity sha1-1Hd6jiJ6AAlqMfAw2zdw+EsRbAI=
+  version "2.1.0"
+  resolved "http://registry.npm.taobao.org/is-path-cwd/download/is-path-cwd-2.1.0.tgz#2e0c7e463ff5b7a0eb60852d851a6809347a124c"
+  integrity sha1-Lgx+Rj/1t6DrYIUthRpoCTR6Ekw=
 
 is-path-in-cwd@^2.0.0:
-  version "2.0.0"
-  resolved "http://registry.npm.taobao.org/is-path-in-cwd/download/is-path-in-cwd-2.0.0.tgz#68e452a6eec260500cec21e029c0a44cc0dcd2ea"
-  integrity sha1-aORSpu7CYFAM7CHgKcCkTMDc0uo=
+  version "2.1.0"
+  resolved "http://registry.npm.taobao.org/is-path-in-cwd/download/is-path-in-cwd-2.1.0.tgz#bfe2dca26c69f397265a4009963602935a053acb"
+  integrity sha1-v+Lcomxp85cmWkAJljYCk1oFOss=
   dependencies:
-    is-path-inside "^1.0.0"
+    is-path-inside "^2.1.0"
 
-is-path-inside@^1.0.0:
-  version "1.0.1"
-  resolved "http://registry.npm.taobao.org/is-path-inside/download/is-path-inside-1.0.1.tgz#8ef5b7de50437a3fdca6b4e865ef7aa55cb48036"
-  integrity sha1-jvW33lBDej/cprToZe96pVy0gDY=
+is-path-inside@^2.1.0:
+  version "2.1.0"
+  resolved "http://registry.npm.taobao.org/is-path-inside/download/is-path-inside-2.1.0.tgz#7c9810587d659a40d27bcdb4d5616eab059494b2"
+  integrity sha1-fJgQWH1lmkDSe8201WFuqwWUlLI=
   dependencies:
-    path-is-inside "^1.0.1"
+    path-is-inside "^1.0.2"
 
 is-plain-obj@^1.0.0, is-plain-obj@^1.1.0:
   version "1.1.0"
@@ -5098,9 +5098,9 @@ jsprim@^1.2.2:
     verror "1.10.0"
 
 jsx-ast-utils@^2.0.1:
-  version "2.0.1"
-  resolved "http://registry.npm.taobao.org/jsx-ast-utils/download/jsx-ast-utils-2.0.1.tgz#e801b1b39985e20fffc87b40e3748080e2dcac7f"
-  integrity sha1-6AGxs5mF4g//yHtA43SAgOLcrH8=
+  version "2.1.0"
+  resolved "http://registry.npm.taobao.org/jsx-ast-utils/download/jsx-ast-utils-2.1.0.tgz#0ee4e2c971fb9601c67b5641b71be80faecf0b36"
+  integrity sha1-DuTiyXH7lgHGe1ZBtxvoD67PCzY=
   dependencies:
     array-includes "^3.0.3"
 
@@ -5262,7 +5262,7 @@ lodash._basecopy@^3.0.0:
 
 lodash._basetostring@^3.0.0:
   version "3.0.1"
-  resolved "http://registry.npm.taobao.org/lodash._basetostring/download/lodash._basetostring-3.0.1.tgz?cache=0&other_urls=http%3A%2F%2Fregistry.npm.taobao.org%2Flodash._basetostring%2Fdownload%2Flodash._basetostring-3.0.1.tgz#d1861d877f824a52f669832dcaf3ee15566a07d5"
+  resolved "http://registry.npm.taobao.org/lodash._basetostring/download/lodash._basetostring-3.0.1.tgz#d1861d877f824a52f669832dcaf3ee15566a07d5"
   integrity sha1-0YYdh3+CSlL2aYMtyvPuFVZqB9U=
 
 lodash._basevalues@^3.0.0:
@@ -5589,17 +5589,17 @@ micromatch@^3.0.4, micromatch@^3.1.10, micromatch@^3.1.4:
     snapdragon "^0.8.1"
     to-regex "^3.0.2"
 
-mime-db@^1.28.0, mime-db@~1.39.0:
-  version "1.39.0"
-  resolved "http://registry.npm.taobao.org/mime-db/download/mime-db-1.39.0.tgz#f95a20275742f7d2ad0429acfe40f4233543780e"
-  integrity sha1-+VogJ1dC99KtBCms/kD0IzVDeA4=
+mime-db@1.40.0, mime-db@^1.28.0:
+  version "1.40.0"
+  resolved "http://registry.npm.taobao.org/mime-db/download/mime-db-1.40.0.tgz#a65057e998db090f732a68f6c276d387d4126c32"
+  integrity sha1-plBX6ZjbCQ9zKmj2wnbTh9QSbDI=
 
 mime-types@^2.1.12, mime-types@~2.1.17, mime-types@~2.1.18, mime-types@~2.1.19:
-  version "2.1.23"
-  resolved "http://registry.npm.taobao.org/mime-types/download/mime-types-2.1.23.tgz#d4eacd87de99348a6858fe1e479aad877388d977"
-  integrity sha1-1OrNh96ZNIpoWP4eR5qth3OI2Xc=
+  version "2.1.24"
+  resolved "http://registry.npm.taobao.org/mime-types/download/mime-types-2.1.24.tgz#b6f8d0b3e951efb77dedeca194cff6d16f676f81"
+  integrity sha1-tvjQs+lR77d97eyhlM/20W9nb4E=
   dependencies:
-    mime-db "~1.39.0"
+    mime-db "1.40.0"
 
 mime@1.4.1:
   version "1.4.1"
@@ -6367,7 +6367,7 @@ path-is-absolute@^1.0.0:
   resolved "http://registry.npm.taobao.org/path-is-absolute/download/path-is-absolute-1.0.1.tgz#174b9268735534ffbc7ace6bf53a5a9e1b5c5f5f"
   integrity sha1-F0uSaHNVNP+8es5r9TpanhtcX18=
 
-path-is-inside@^1.0.1, path-is-inside@^1.0.2:
+path-is-inside@^1.0.2:
   version "1.0.2"
   resolved "http://registry.npm.taobao.org/path-is-inside/download/path-is-inside-1.0.2.tgz#365417dede44430d1c11af61027facf074bdfc53"
   integrity sha1-NlQX3t5EQw0cEa9hAn+s8HS9/FM=
@@ -8474,7 +8474,7 @@ undertaker-registry@^1.0.0:
   resolved "http://registry.npm.taobao.org/undertaker-registry/download/undertaker-registry-1.0.1.tgz#5e4bda308e4a8a2ae584f9b9a4359a499825cc50"
   integrity sha1-XkvaMI5KiirlhPm5pDWaSZglzFA=
 
-undertaker@^1.0.0:
+undertaker@^1.2.1:
   version "1.2.1"
   resolved "http://registry.npm.taobao.org/undertaker/download/undertaker-1.2.1.tgz#701662ff8ce358715324dfd492a4f036055dfe4b"
   integrity sha1-cBZi/4zjWHFTJN/UkqTwNgVd/ks=
