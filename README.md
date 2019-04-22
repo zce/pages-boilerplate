@@ -55,6 +55,8 @@ Running an automated development server.
 
 Build the entire project to get releasable files.
 
+#### options
+
 - `production`: Production mode, Default: `false`
 - `prod`: Alias to `production`
 

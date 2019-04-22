@@ -10,13 +10,6 @@ const cssnano = require('cssnano')
 
 const pkg = require('./package.json')
 
-const config = {
-  src: 'src',
-  dest: 'dist',
-  public: 'public',
-  temp: 'temp'
-}
-
 const data = {
   name: pkg.name,
   version: pkg.version,
@@ -24,6 +17,13 @@ const data = {
   homepage: pkg.homepage,
   author: pkg.author,
   date: new Date()
+}
+
+const config = {
+  src: 'src',
+  dest: 'dist',
+  public: 'public',
+  temp: 'temp'
 }
 
 const paths = {
