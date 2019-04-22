@@ -119,9 +119,10 @@ $ yarn add @babel/core @babel/preset-env autoprefixer browser-sync bs-html-injec
 
 ## Todos
 
-- [ ] use pump for gulp
-- [ ] data dir
-- [ ] content dir
+- [ ] pump or pipe
+- [ ] dart-sass or node-sass?
+- [ ] data directory
+- [ ] content directory
 
 ## References
 
