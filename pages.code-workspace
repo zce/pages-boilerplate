@@ -13,6 +13,12 @@
 			"path": "."
 		}
 	],
+	"extensions": {
+		"recommendations": [
+      "editorconfig.editorconfig",
+      "batisteo.vscode-django"
+		]
+	},
 	"settings": {
     "explorer.openEditors.visible": 0,
     "files.exclude": {

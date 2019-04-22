@@ -20,6 +20,7 @@ const config = {
 const data = {
   name: pkg.name,
   version: pkg.version,
+  description: pkg.description,
   homepage: pkg.homepage,
   author: pkg.author,
   date: new Date()
@@ -70,7 +71,7 @@ const script = () => {
 const page = () => {
   return gulp.src(paths.pages, { cwd: config.src, base: config.src, ignore: [ '{layouts,partials}/**' ] })
     .pipe($.plumber())
-    .pipe($.swig({ defaults: { cache: false }, data }))
+    .pipe($.swig({ defaults: { cache: false, locals: data } }))
     .pipe(gulp.dest(config.temp))
     // use bs-html-injector
     // .pipe(bs.reload({ stream: true }))

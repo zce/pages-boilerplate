@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="author" content="zce">
-  <title>Awesome · {{ name | capitalize }}</title>
+  <title>{{ current | title }} · {{ name | replace('-', ' ') | title }}</title>
 
   <link rel="canonical" href="https://zce.me">
 
@@ -28,7 +28,7 @@
 
   <!-- build:js assets/scripts/vendor.js -->
   <script src="/node_modules/jquery/dist/jquery.js"></script>
-  <script src="/node_modules/popper.js/dist/dist/umd/popper.js"></script>
+  <script src="/node_modules/popper.js/dist/umd/popper.js"></script>
   <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
   <!-- endbuild -->
   <!-- build:js assets/scripts/main.js -->
