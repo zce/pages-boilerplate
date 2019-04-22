@@ -12,14 +12,6 @@ const cssnano = require('cssnano')
 
 const pkg = require('./package')
 
-const $ = gulpLoadPlugins()
-const bs = browserSync.create()
-const argv = minimist(process.argv.slice(2))
-
-const isProd = process.env.NODE_ENV
-  ? process.env.NODE_ENV === 'production'
-  : argv.production || argv.prod || false
-
 const config = {
   src: 'src',
   dest: 'dist',
@@ -42,6 +34,14 @@ const paths = {
   images: 'assets/images/**/*.{jpg,jpeg,png,gif,svg}',
   fonts: 'assets/fonts/**/*.{eot,svg,ttf,woff,woff2}'
 }
+
+const $ = gulpLoadPlugins()
+const bs = browserSync.create()
+const argv = minimist(process.argv.slice(2))
+
+const isProd = process.env.NODE_ENV
+  ? process.env.NODE_ENV === 'production'
+  : argv.production || argv.prod || false
 
 const clean = () => {
   return del([ config.temp, config.dest ])
