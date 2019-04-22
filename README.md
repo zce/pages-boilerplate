@@ -113,6 +113,10 @@ Deploy build results to [GitHub Pages](https://pages.github.com).
    └─ yarn.lock ······································ yarn lock file
 ```
 
+## Related
+
+- [zce/pages-tasks](https://github.com/zce/pages-tasks) - A preset static pages project gulp tasks.
+
 ## Dependencies
 
 ```sh
