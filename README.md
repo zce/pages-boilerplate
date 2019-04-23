@@ -6,7 +6,7 @@
 [![devDependency Status][devdependency-image]][devdependency-url]
 [![Code Style][style-image]][style-url]
 
-> A boilerplate for static pages
+> Always a pleasure scaffolding your awesome static sites.
 
 ## Getting Started
 
@@ -22,8 +22,11 @@ $ yarn # or npm install
 
 ```shell
 $ yarn <task> [options]
+```
 
-# e.g.
+### e.g.
+
+```shell
 $ yarn serve --port 5210 --open
 $ yarn build --production
 ```
@@ -33,10 +36,6 @@ $ yarn build --production
 ### lint
 
 Lint styles & scripts files.
-
-### clean
-
-Clean dist & temp files.
 
 ### compile
 
@@ -77,28 +76,32 @@ Deploy build results to [GitHub Pages](https://pages.github.com).
 
 - `branch`: The name of the branch you'll be pushing to, Default: `'gh-pages'`
 
+### clean
+
+Clean dist & temp files.
+
 ## Folder Structure
 
 ```
 └── my-pages ········································· proj root
-   ├─ public ········································· static
-   │  └─ .gitkeep ···································· static file (unprocessed)
-   ├─ src ············································ source
-   │  ├─ assets ······································ assets
-   │  │  ├─ fonts ···································· fonts
-   │  │  │  └─ .gitkeep ······························ font file
-   │  │  ├─ images ··································· images
-   │  │  │  └─ .gitkeep ······························ image file
-   │  │  ├─ scripts ·································· scripts (babel / uglify)
-   │  │  │  └─ .gitkeep ······························ script file
-   │  │  └─ styles ··································· styles (scss / postcss)
-   │  │     ├─ _variables.scss ······················· partial file (dont output)
-   │  │     └─ main.scss ····························· entry scss file
-   │  ├─ layouts ····································· layouts (dont output)
-   │  │  └─ basic.html ······························· layout file
-   │  ├─ partials ···································· partials (dont output)
-   │  │  ├─ footer.html ······························ partial file
-   │  │  └─ header.html ······························ partial file
+   ├─ public ········································· static dir
+   │  └─ favicon.ico ································· static file (unprocessed)
+   ├─ src ············································ source dir
+   │  ├─ assets ······································ assets dir
+   │  │  ├─ fonts ···································· fonts dir
+   │  │  │  └─ pages.ttf ····························· font file (imagemin)
+   │  │  ├─ images ··································· images dir
+   │  │  │  └─ logo.png ······························ image file (imagemin)
+   │  │  ├─ scripts ·································· scripts dir
+   │  │  │  └─ main.js ······························· script file (babel / uglify)
+   │  │  └─ styles ··································· styles dir
+   │  │     ├─ _variables.scss ······················· partial sass file (dont output)
+   │  │     └─ main.scss ····························· entry scss file (scss / postcss)
+   │  ├─ layouts ····································· layouts dir
+   │  │  └─ basic.html ······························· layout file (dont output)
+   │  ├─ partials ···································· partials dir
+   │  │  ├─ footer.html ······························ partial file (dont output)
+   │  │  └─ header.html ······························ partial file (dont output)
    │  ├─ about.html ·································· page file (use layout & partials)
    │  └─ index.html ·································· page file (use layout & partials)
    ├─ .csscomb.json ·································· csscomb config file
@@ -120,15 +123,15 @@ Deploy build results to [GitHub Pages](https://pages.github.com).
 ## Dependencies
 
 ```sh
-$ yarn add @babel/core @babel/preset-env autoprefixer browser-sync bs-html-injector csscomb cssnano del gulp gulp-babel gulp-beautify gulp-gh-pages gulp-htmlmin gulp-if gulp-imagemin gulp-load-plugins gulp-plumber gulp-postcss gulp-sass gulp-size gulp-swig gulp-uglify gulp-useref minimist standard --dev
+$ yarn add @babel/core @babel/preset-env autoprefixer browser-sync bs-html-injector csscomb cssnano del gulp gulp-babel gulp-beautify gulp-gh-pages@next gulp-htmlmin gulp-if gulp-imagemin gulp-load-plugins gulp-plumber gulp-postcss gulp-sass gulp-size gulp-swig gulp-uglify gulp-useref minimist standard --dev
 ```
 
 ## Todos
 
-- [ ] pump or pipe
+- [ ] pump or pipe?
 - [ ] dart-sass or node-sass?
-- [ ] data directory
-- [ ] content directory
+- [ ] data directory?
+- [ ] content directory?
 
 ## References
 

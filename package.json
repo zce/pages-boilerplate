@@ -5,6 +5,8 @@
   "description": "Always a pleasure scaffolding your awesome static sites.",
   "keywords": [
     "pages-boilerplate",
+    "boilerplate",
+    "pages",
     "zce"
   ],
   "homepage": "https://github.com/zce/pages-boilerplate#readme",
@@ -24,7 +26,6 @@
   "scripts": {
     "clean": "gulp clean",
     "lint": "gulp lint",
-    "compile": "gulp compile",
     "serve": "gulp serve",
     "build": "gulp build",
     "start": "gulp start",
@@ -50,7 +51,7 @@
     "@babel/core": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
     "autoprefixer": "^9.5.1",
-    "browser-sync": "^2.26.3",
+    "browser-sync": "^2.26.4",
     "bs-html-injector": "^3.0.3",
     "csscomb": "^4.3.0",
     "cssnano": "^4.1.10",
@@ -58,7 +59,7 @@
     "gulp": "^4.0.1",
     "gulp-babel": "^8.0.0",
     "gulp-beautify": "^3.0.0",
-    "gulp-gh-pages": "^0.5.4",
+    "gulp-gh-pages": "^0.6.0-6",
     "gulp-htmlmin": "^5.0.1",
     "gulp-if": "^2.0.2",
     "gulp-imagemin": "^5.0.3",
