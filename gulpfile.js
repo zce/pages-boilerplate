@@ -23,15 +23,14 @@ const config = {
   src: 'src',
   dest: 'dist',
   public: 'public',
-  temp: 'temp'
-}
-
-const paths = {
-  pages: '**/*.html',
-  styles: 'assets/styles/**/*.scss',
-  scripts: 'assets/scripts/**/*.js',
-  images: 'assets/images/**/*.{jpg,jpeg,png,gif,svg}',
-  fonts: 'assets/fonts/**/*.{eot,svg,ttf,woff,woff2}'
+  temp: 'temp',
+  paths: {
+    pages: '**/*.html',
+    styles: 'assets/styles/**/*.scss',
+    scripts: 'assets/scripts/**/*.js',
+    images: 'assets/images/**/*.{jpg,jpeg,png,gif,svg}',
+    fonts: 'assets/fonts/**/*.{eot,svg,ttf,woff,woff2}'
+  }
 }
 
 const $ = gulpLoadPlugins()
@@ -48,11 +47,11 @@ const clean = () => {
 const lint = done => {
   const comb = new Comb(require('./.csscomb.json'))
   comb.processPath(config.src)
-  standard.lintFiles(paths.scripts, { cwd: config.src, fix: true }, done)
+  standard.lintFiles(config.paths.scripts, { cwd: config.src, fix: true }, done)
 }
 
 const style = () => {
-  return gulp.src(paths.styles, { cwd: config.src, base: config.src, sourcemaps: !isProd })
+  return gulp.src(config.paths.styles, { cwd: config.src, base: config.src, sourcemaps: !isProd })
     .pipe($.plumber({ errorHandler: $.sass.logError }))
     .pipe($.sass.sync({ outputStyle: 'expanded', precision: 10, includePaths: ['.'] }))
     .pipe($.postcss([ autoprefixer() ]))
@@ -61,7 +60,7 @@ const style = () => {
 }
 
 const script = () => {
-  return gulp.src(paths.scripts, { cwd: config.src, base: config.src, sourcemaps: !isProd })
+  return gulp.src(config.paths.scripts, { cwd: config.src, base: config.src, sourcemaps: !isProd })
     .pipe($.plumber())
     .pipe($.babel())
     .pipe(gulp.dest(config.temp, { sourcemaps: '.' }))
@@ -69,11 +68,11 @@ const script = () => {
 }
 
 const page = () => {
-  return gulp.src(paths.pages, { cwd: config.src, base: config.src, ignore: [ '{layouts,partials}/**' ] })
+  return gulp.src(config.paths.pages, { cwd: config.src, base: config.src, ignore: [ '{layouts,partials}/**' ] })
     .pipe($.plumber())
     .pipe($.swig({ defaults: { cache: false, locals: data } }))
     .pipe(gulp.dest(config.temp))
-    // use bs-html-injector
+    // use bs-html-injector instead
     // .pipe(bs.reload({ stream: true }))
 }
 
@@ -96,7 +95,7 @@ const useref = () => {
     removeStyleLinkTypeAttributes: true
   }
 
-  return gulp.src(paths.pages, { cwd: config.temp, base: config.temp })
+  return gulp.src(config.paths.pages, { cwd: config.temp, base: config.temp })
     .pipe($.plumber())
     .pipe($.useref({ searchPath: [ config.temp, config.src, '.' ] }))
     .pipe($.if(/\.js$/, $.if(isProd, $.uglify(uglifyOpts), $.beautify.js(beautifyOpts))))
@@ -106,14 +105,14 @@ const useref = () => {
 }
 
 const image = () => {
-  return gulp.src(paths.images, { cwd: config.src, base: config.src, since: gulp.lastRun(image) })
+  return gulp.src(config.paths.images, { cwd: config.src, base: config.src, since: gulp.lastRun(image) })
     .pipe($.plumber())
     .pipe($.if(isProd, $.imagemin()))
     .pipe(gulp.dest(config.dest))
 }
 
 const font = () => {
-  return gulp.src(paths.fonts, { cwd: config.src, base: config.src })
+  return gulp.src(config.paths.fonts, { cwd: config.src, base: config.src })
     .pipe($.plumber())
     .pipe($.if(isProd, $.imagemin()))
     .pipe(gulp.dest(config.dest))
@@ -140,10 +139,10 @@ const upload = () => {
 }
 
 const devServer = () => {
-  gulp.watch(paths.styles, { cwd: config.src }, style)
-  gulp.watch(paths.scripts, { cwd: config.src }, script)
-  gulp.watch(paths.pages, { cwd: config.src }, page)
-  gulp.watch([ paths.images, paths.fonts ], { cwd: config.src }, bs.reload)
+  gulp.watch(config.paths.styles, { cwd: config.src }, style)
+  gulp.watch(config.paths.scripts, { cwd: config.src }, script)
+  gulp.watch(config.paths.pages, { cwd: config.src }, page)
+  gulp.watch([ config.paths.images, config.paths.fonts ], { cwd: config.src }, bs.reload)
   gulp.watch('**', { cwd: config.public }, bs.reload)
 
   bs.init({

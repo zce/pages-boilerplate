@@ -2,6 +2,7 @@
 
 // @import 'node_modules/bootstrap/scss/bootstrap';
 @import 'variables';
+
 @import 'icons';
 
 body {
@@ -15,22 +16,24 @@ body {
   padding-top: $jumbotron-padding;
   padding-bottom: $jumbotron-padding;
   background-color: $jumbotron-bg;
+
   @media (min-width: 768px) {
     padding-top: 6rem;
     padding-bottom: 6rem;
-  }
-  p:last-child {
-    margin-bottom: 0;
   }
 
   .jumbotron-heading {
     font-weight: 300;
   }
+
   .container {
     max-width: 40rem;
   }
-}
 
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
 
 .site-footer {
   padding-top: 3rem;

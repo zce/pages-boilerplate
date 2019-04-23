@@ -1,26 +1,15 @@
 {
   "always-semicolon": true,
+  "block-indent": 2,
   "color-case": "lower",
-  "block-indent": "  ",
   "color-shorthand": true,
   "element-case": "lower",
   "eof-newline": true,
+  "exclude": [ "node_modules/**" ],
   "leading-zero": true,
+  "lines-between-rulesets": 1,
   "quotes": "single",
-  "sort-order-fallback": "abc",
-  "space-before-colon": "",
-  "space-after-colon": " ",
-  "space-before-combinator": " ",
-  "space-after-combinator": " ",
-  "space-between-declarations": "\n",
-  "space-before-opening-brace": " ",
-  "space-after-opening-brace": "\n",
-  "space-after-selector-delimiter": "\n",
-  "space-before-selector-delimiter": "",
-  "space-before-closing-brace": "\n",
-  "strip-spaces": true,
-  "tab-size": true,
-  "unitless-zero": true,
+  "remove-empty-rulesets": false,
   "sort-order": [
     [
       "$variable"
@@ -236,5 +225,21 @@
       "$extend",
       "$import"
     ]
-  ]
+  ],
+  "sort-order-fallback": "abc",
+  "space-after-colon": 1,
+  "space-before-colon": 0,
+  "space-after-combinator": 1,
+  "space-before-combinator": 1,
+  "space-between-declarations": "\n",
+  "space-after-opening-brace": "\n",
+  "space-before-opening-brace": 1,
+  "space-after-selector-delimiter": "\n",
+  "space-before-selector-delimiter": 0,
+  "space-before-closing-brace": "\n",
+  "strip-spaces": true,
+  "tab-size": 2,
+  "unitless-zero": true,
+  "vendor-prefix-align": true,
+  "verbose": false
 }
