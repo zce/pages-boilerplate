@@ -8,17 +8,14 @@ const browserSync = require('browser-sync')
 const autoprefixer = require('autoprefixer')
 const cssnano = require('cssnano')
 
-const pkg = require('./package.json')
-
+// Put the data used on the page here.
+// Use `{{ prop }}` interpolation expressions in pages to get data
 const data = {
-  name: pkg.name,
-  version: pkg.version,
-  description: pkg.description,
-  homepage: pkg.homepage,
-  author: pkg.author,
-  date: new Date()
+  site: Object.assign({ date: new Date() }, require('./package.json'))
 }
 
+// You can modify the default folder structure here,
+// but I don't recommend it.
 const config = {
   src: 'src',
   dest: 'dist',

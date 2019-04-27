@@ -1,6 +1,7 @@
 # pages-boilerplate
 
 [![Build Status][travis-image]][travis-url]
+[![Package Version][version-image]][version-url]
 [![License][license-image]][license-url]
 [![Dependency Status][dependency-image]][dependency-url]
 [![devDependency Status][devdependency-image]][devdependency-url]
@@ -12,9 +13,9 @@
 
 ```shell
 # clone repo
-$ git clone https://github.com/zce/pages-boilerplate.git my-pages
-$ cd my-pages
-# install deps
+$ git clone https://github.com/zce/pages-boilerplate.git my-awesome-pages
+$ cd my-awesome-pages
+# install dependencies
 $ yarn # or npm install
 ```
 
@@ -27,80 +28,81 @@ $ yarn <task> [options]
 ### e.g.
 
 ```shell
+# Runs the app in development mode
 $ yarn serve --port 5210 --open
+# Builds the app for production to the `dist` folder
 $ yarn build --production
 ```
 
-## All Tasks
+### Scripts
 
-### lint
+#### `yarn lint` or `npm run lint`
 
-Lint styles & scripts files.
+Lint the styles & scripts files.
 
-### compile
+#### `yarn compile` or `npm run compile`
 
-Compile styles & scripts & pages file.
+Compile the styles & scripts & pages file.
 
-### serve
+#### `yarn serve` or `npm run serve`
 
-Running an automated development server.
+Runs the app in development mode with a automated server.
 
-#### options
+##### options
 
-- `port`: Server port, Default: `2080`
-- `open`: Automatically open browser, Default: `false`
+- `open`: Open browser on start, Default: `false`
+- `port`: Specify server port, Default: `2080`
 
-### build
+#### `yarn build` or `npm run build`
 
-Build the entire project to get releasable files.
+Builds the app for production to the `dist` folder. It minify source in production mode for the best performance.
 
-#### options
+##### options
 
-- `production`: Production mode, Default: `false`
+- `production`: Production mode flag, Default: `false`
 - `prod`: Alias to `production`
 
-### start
+#### `yarn start` or `npm run start`
 
 Running projects in production mode.
 
-#### options
+##### options
 
-- `port`: Server port, Default: `2080`
-- `open`: Automatically open browser, Default: `false`
+- `open`: Open browser on start, Default: `false`
+- `port`: Specify server port, Default: `2080`
 
-### deploy
+#### `yarn deploy` or `npm run deploy`
 
-Deploy build results to [GitHub Pages](https://pages.github.com).
+Deploy the `dist` folder to [GitHub Pages](https://pages.github.com).
 
-#### options
+##### options
 
 - `branch`: The name of the branch you'll be pushing to, Default: `'gh-pages'`
 
-### clean
+#### `yarn clean` or `npm run clean`
 
-Clean dist & temp files.
+Clean the `dist` & `temp` files.
 
 ## Folder Structure
 
 ```
-└── my-pages ········································· proj root
-   ├─ public ········································· static dir
+└── my-awesome-pages ································· project root
+   ├─ public ········································· static folder
    │  └─ favicon.ico ································· static file (unprocessed)
-   ├─ src ············································ source dir
-   │  ├─ assets ······································ assets dir
-   │  │  ├─ fonts ···································· fonts dir
+   ├─ src ············································ source folder
+   │  ├─ assets ······································ assets folder
+   │  │  ├─ fonts ···································· fonts folder
    │  │  │  └─ pages.ttf ····························· font file (imagemin)
-   │  │  ├─ images ··································· images dir
+   │  │  ├─ images ··································· images folder
    │  │  │  └─ logo.png ······························ image file (imagemin)
-   │  │  ├─ scripts ·································· scripts dir
+   │  │  ├─ scripts ·································· scripts folder
    │  │  │  └─ main.js ······························· script file (babel / uglify)
-   │  │  └─ styles ··································· styles dir
+   │  │  └─ styles ··································· styles folder
    │  │     ├─ _variables.scss ······················· partial sass file (dont output)
    │  │     └─ main.scss ····························· entry scss file (scss / postcss)
-   │  ├─ layouts ····································· layouts dir
+   │  ├─ layouts ····································· layouts folder
    │  │  └─ basic.html ······························· layout file (dont output)
-   │  ├─ partials ···································· partials dir
-   │  │  ├─ footer.html ······························ partial file (dont output)
+   │  ├─ partials ···································· partials folder
    │  │  └─ header.html ······························ partial file (dont output)
    │  ├─ about.html ·································· page file (use layout & partials)
    │  └─ index.html ·································· page file (use layout & partials)
@@ -118,28 +120,8 @@ Clean dist & temp files.
 
 ## Related
 
-- [zce/pages-tasks](https://github.com/zce/pages-tasks) - A preset static pages project gulp tasks.
-
-## Dependencies
-
-```sh
-$ yarn add @babel/core @babel/preset-env autoprefixer browser-sync bs-html-injector csscomb cssnano del gulp gulp-babel gulp-beautify gulp-gh-pages@next gulp-htmlmin gulp-if gulp-imagemin gulp-load-plugins gulp-plumber gulp-postcss gulp-sass gulp-size gulp-swig gulp-uglify gulp-useref minimist standard --dev
-```
-
-## Todos
-
-- [ ] pump or pipe?
-- [ ] dart-sass or node-sass?
-- [ ] data directory?
-- [ ] content directory?
-
-## References
-
-- https://github.com/gulpjs/gulp/tree/master/docs/why-use-pump
-- https://www.jianshu.com/p/0572e8e115da
-- https://github.com/colynb/gulp-swig
-- https://github.com/gulpjs/gulp/blob/master/docs/recipes/templating-with-swig-and-yaml-front-matter.md
-- https://github.com/BrowserSync/recipes/tree/master/recipes/gulp.swig
+- [zce/x-pages](https://github.com/zce/x-pages) - A fully managed gulp workflow for static page sites.
+- [zce/pages-tasks](https://github.com/zce/pages-tasks) - A preset gulp tasks for static page sites.
 
 ## Contributing
 
@@ -158,8 +140,10 @@ $ yarn add @babel/core @babel/preset-env autoprefixer browser-sync bs-html-injec
 
 
 
-[travis-image]: https://travis-ci.org/zce/pages-boilerplate.svg?branch=master
+[travis-image]: https://img.shields.io/travis/zce/pages-boilerplate/master.svg
 [travis-url]: https://travis-ci.org/zce/pages-boilerplate
+[version-image]: https://img.shields.io/github/package-json/v/zce/pages-boilerplate/master.svg
+[version-url]: https://github.com/zce/pages-boilerplate
 [license-image]: https://img.shields.io/github/license/zce/pages-boilerplate.svg
 [license-url]: https://github.com/zce/pages-boilerplate/blob/master/LICENSE
 [dependency-image]: https://img.shields.io/david/zce/pages-boilerplate.svg

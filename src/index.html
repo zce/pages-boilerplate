@@ -25,10 +25,10 @@
 
   <section class="jumbotron text-center">
     <div class="container">
-      <h1 class="jumbotron-heading">{{ name | upper }}</h1>
-      <p class="lead text-muted">{{ description }}</p>
+      <h1 class="jumbotron-heading">{{ site.name | upper }}</h1>
+      <p class="lead text-muted">{{ site.description }}</p>
       <p>
-        <a href="{{ homepage }}" class="btn btn-primary my-3">Getting started</a>
+        <a href="{{ site.homepage }}" class="btn btn-primary my-3">Getting started</a>
       </p>
     </div>
   </section>
