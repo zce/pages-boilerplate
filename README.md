@@ -48,7 +48,7 @@ Running an automated development server.
 #### options
 
 - `port`: Server port, Default: `2080`
-- `open`: Automatically open browser, Default: `true`
+- `open`: Automatically open browser, Default: `false`
 
 ### build
 
