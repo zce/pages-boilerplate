@@ -34,7 +34,7 @@ $ yarn serve --port 5210 --open
 $ yarn build --production
 ```
 
-### Scripts
+### Available Scripts
 
 #### `yarn lint` or `npm run lint`
 
