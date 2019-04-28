@@ -78,6 +78,6 @@
     "node": ">=6"
   },
   "renovate": {
-    "extends": [ "zce" ]
+    "extends": [ "config:base" ]
   }
 }
