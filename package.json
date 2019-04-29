@@ -76,8 +76,5 @@
   },
   "engines": {
     "node": ">=6"
-  },
-  "renovate": {
-    "extends": [ "zce" ]
   }
 }
