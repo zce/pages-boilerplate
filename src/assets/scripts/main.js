@@ -1,6 +1,6 @@
 // TODO: site logics
 
-jQuery(($) => {
+$(($) => {
   const $body = $('html, body')
 
   $('#scroll_top').on('click', () => {
