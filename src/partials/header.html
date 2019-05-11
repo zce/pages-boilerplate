@@ -16,7 +16,7 @@
           {% for item in menus %}
           {% set isCurrent = current === item.name | lower %}
           <li class="nav-item{% if item.children %} dropdown{% endif %}{% if isCurrent %} active{% endif %}">
-            <a class="nav-link{% if item.children %} dropdown-toggle{% endif %} d-flex align-items-center" href="{{ item.link }}"{% if item.children %}  id="nav-{{ item.name | lower }}-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"{% endif %}>{% if item.icon %}<i class="icon-{{ item.icon }} mr-1"></i> {% endif %}{{ item.name }}{% if isCurrent %} <span class="sr-only">(current)</span>{% endif %}</a>
+            <a class="nav-link{% if item.children %} dropdown-toggle{% endif %} d-flex align-items-center" href="{{ item.link }}"{% if item.children %} id="nav-{{ item.name | lower }}-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"{% endif %}>{% if item.icon %}<i class="icon-{{ item.icon }} mr-1"></i> {% endif %}{{ item.name }}{% if isCurrent %} <span class="sr-only">(current)</span>{% endif %}</a>
             {% if item.children %}
             <div class="dropdown-menu" aria-labelledby="nav-{{ item.name | lower }}-dropdown">
               {% for item in item.children %}
