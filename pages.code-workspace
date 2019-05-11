@@ -24,7 +24,8 @@
     "files.exclude": {
       "node_modules": true,
       "temp": true,
-      "pages.code-workspace": true
-    }
+      // "pages.code-workspace": true
+    },
+    "terminal.integrated.cwd": ""
   }
 }
