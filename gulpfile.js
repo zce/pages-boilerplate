@@ -84,7 +84,7 @@ const useref = () => {
   const htmlminOpts = {
     collapseWhitespace: true,
     minifyCSS: true,
-    minifyJS: uglifyOpts,
+    minifyJS: true,
     processConditionalComments: true,
     removeComments: true,
     removeEmptyAttributes: true,
