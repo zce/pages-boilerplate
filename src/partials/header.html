@@ -6,31 +6,30 @@
           <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
           <circle cx="12" cy="13" r="4" />
         </svg>
-        <span>{{ site.name | replace('[-_]', ' ', 'g') | title }}</span>
+        <span>{{ pkg.name | replace('[-_]', ' ', 'g') | title }}</span>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#site_menu" aria-controls="site_menu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="site_menu">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item{% if current === 'home' %} active{% endif %}">
-            <a class="nav-link d-flex align-items-center" href="index.html"><i class="icon-aperture mr-1"></i> Home{% if current === 'home' %} <span class="sr-only">(current)</span>{% endif %}</a>
-          </li>
-          <li class="nav-item{% if current === 'features' %} active{% endif %}">
-            <a class="nav-link" href="features.html">Features{% if current === 'features' %} <span class="sr-only">(current)</span>{% endif %}</a>
-          </li>
-          <li class="nav-item{% if current === 'about' %} active{% endif %}">
-            <a class="nav-link" href="about.html">About{% if current === 'about' %} <span class="sr-only">(current)</span>{% endif %}</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contact</a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item d-flex align-items-center" href="https://twitter.com/w_zce">Twitter</a>
-              <a class="dropdown-item d-flex align-items-center" href="https://weibo.com/zceme">Weibo</a>
+          {% for item in menus %}
+          {% set isCurrent = current === item.name | lower %}
+          <li class="nav-item{% if item.children %} dropdown{% endif %}{% if isCurrent %} active{% endif %}">
+            <a class="nav-link{% if item.children %} dropdown-toggle{% endif %} d-flex align-items-center" href="{{ item.link }}"{% if item.children %}  id="nav-{{ item.name | lower }}-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"{% endif %}>{% if item.icon %}<i class="icon-{{ item.icon }} mr-1"></i> {% endif %}{{ item.name }}{% if isCurrent %} <span class="sr-only">(current)</span>{% endif %}</a>
+            {% if item.children %}
+            <div class="dropdown-menu" aria-labelledby="nav-{{ item.name | lower }}-dropdown">
+              {% for item in item.children %}
+              {% if item.name === 'divider' %}
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item d-flex align-items-center" href="https://github.com/zce">GitHub</a>
+              {% else %}
+              <a class="dropdown-item d-flex align-items-center" href="{{ item.link }}" target="_brank">{{ item.name }}</a>
+              {% endif %}
+              {% endfor %}
             </div>
+            {% endif %}
           </li>
+          {% endfor %}
         </ul>
       </div>
     </div>
