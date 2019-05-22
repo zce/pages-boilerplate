@@ -140,12 +140,12 @@ Clean the `dist` & `temp` files.
 
 
 
-[travis-image]: https://img.shields.io/travis/zce/pages-boilerplate/extract.svg
+[travis-image]: https://img.shields.io/travis/zce/pages-boilerplate/x-pages.svg
 [travis-url]: https://travis-ci.org/zce/pages-boilerplate
-[version-image]: https://img.shields.io/github/package-json/v/zce/pages-boilerplate/extract.svg
+[version-image]: https://img.shields.io/github/package-json/v/zce/pages-boilerplate/x-pages.svg
 [version-url]: https://github.com/zce/pages-boilerplate
 [license-image]: https://img.shields.io/github/license/zce/pages-boilerplate.svg
-[license-url]: https://github.com/zce/pages-boilerplate/blob/extract/LICENSE
+[license-url]: https://github.com/zce/pages-boilerplate/blob/x-pages/LICENSE
 [dependency-image]: https://img.shields.io/david/zce/pages-boilerplate.svg
 [dependency-url]: https://david-dm.org/zce/pages-boilerplate
 [devdependency-image]: https://img.shields.io/david/dev/zce/pages-boilerplate.svg
