@@ -24,12 +24,12 @@
     "url": "https://zce.me"
   },
   "scripts": {
-    "clean": "gulp clean",
-    "lint": "gulp lint",
-    "serve": "gulp serve",
-    "build": "gulp build",
-    "start": "gulp start",
-    "deploy": "gulp deploy --production"
+    "clean": "x-pages clean",
+    "lint": "x-pages lint",
+    "serve": "x-pages serve",
+    "build": "x-pages build",
+    "start": "x-pages start",
+    "deploy": "x-pages deploy --production"
   },
   "browserslist": [
     "last 1 version",
@@ -43,7 +43,7 @@
     "popper.js": "1.15.0"
   },
   "devDependencies": {
-    "pages-tasks": "0.4.0"
+    "x-pages": "0.7.0"
   },
   "engines": {
     "node": ">=6"
