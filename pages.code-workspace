@@ -16,16 +16,21 @@
 	"extensions": {
 		"recommendations": [
       "editorconfig.editorconfig",
-      "batisteo.vscode-django"
+      "zhutian.swig"
 		]
 	},
 	"settings": {
     "explorer.openEditors.visible": 0,
-    "files.exclude": {
-      "node_modules": true,
-      "temp": true,
-      // "pages.code-workspace": true
+    "files.associations": {
+      "*.html": "swig"
     },
-    "terminal.integrated.cwd": ""
+    "files.exclude": {
+      "dist": true,
+      "node_modules": true,
+      "src": true,
+      "temp": true,
+      "pages.code-workspace": false
+    },
+    "terminal.integrated.cwd": "."
   }
 }
