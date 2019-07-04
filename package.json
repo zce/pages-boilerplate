@@ -48,8 +48,8 @@
     "popper.js": "1.15.0"
   },
   "devDependencies": {
-    "@babel/core": "7.4.5",
-    "@babel/preset-env": "7.4.5",
+    "@babel/core": "7.5.0",
+    "@babel/preset-env": "7.5.0",
     "autoprefixer": "9.6.0",
     "browser-sync": "2.26.7",
     "bs-html-injector": "3.0.3",
