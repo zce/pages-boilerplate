@@ -43,7 +43,7 @@
     "popper.js": "1.15.0"
   },
   "devDependencies": {
-    "x-pages": "0.8.0"
+    "x-pages": "0.8.1"
   },
   "engines": {
     "node": ">=6"
