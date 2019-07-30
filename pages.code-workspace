@@ -29,7 +29,7 @@
       "node_modules": true,
       "src": true,
       "temp": true,
-      "pages.code-workspace": false
+      "*.code-workspace": false
     },
     "terminal.integrated.cwd": "."
   }
