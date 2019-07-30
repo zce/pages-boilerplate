@@ -76,7 +76,7 @@ const isProd = process.env.NODE_ENV
   : argv.production || argv.prod || false
 
 const clean = () => {
-  return del([ config.temp, config.dest ])
+  return del([config.temp, config.dest])
 }
 
 const lint = done => {
@@ -90,7 +90,7 @@ const style = () => {
   return gulp.src(config.paths.styles, { cwd: config.src, base: config.src, sourcemaps: !isProd })
     .pipe($.plumber({ errorHandler: $.sass.logError }))
     .pipe($.sass.sync({ outputStyle: 'expanded', precision: 10, includePaths: ['.'] }))
-    .pipe($.postcss([ autoprefixer() ]))
+    .pipe($.postcss([autoprefixer()]))
     .pipe(gulp.dest(config.temp, { sourcemaps: '.' }))
     .pipe(bs.reload({ stream: true }))
 }
@@ -104,7 +104,7 @@ const script = () => {
 }
 
 const page = () => {
-  return gulp.src(config.paths.pages, { cwd: config.src, base: config.src, ignore: [ '{layouts,partials}/**' ] })
+  return gulp.src(config.paths.pages, { cwd: config.src, base: config.src, ignore: ['{layouts,partials}/**'] })
     .pipe($.plumber())
     .pipe($.swig({ defaults: { cache: false, locals: data } }))
     .pipe(gulp.dest(config.temp))
@@ -118,7 +118,7 @@ const useref = () => {
   // https://github.com/mishoo/UglifyJS2#minify-options
   const uglifyOpts = { compress: { drop_console: true } }
   // https://cssnano.co/guides/
-  const postcssOpts = [ cssnano({ safe: true, autoprefixer: false }) ]
+  const postcssOpts = [cssnano({ safe: true, autoprefixer: false })]
   // https://github.com/kangax/html-minifier#options-quick-reference
   const htmlminOpts = {
     collapseWhitespace: true,
@@ -133,7 +133,7 @@ const useref = () => {
 
   return gulp.src(config.paths.pages, { cwd: config.temp, base: config.temp })
     .pipe($.plumber())
-    .pipe($.useref({ searchPath: [ config.temp, config.src, '.' ] }))
+    .pipe($.useref({ searchPath: [config.temp, config.src, '.'] }))
     .pipe($.if(/\.js$/, $.if(isProd, $.uglify(uglifyOpts), $.beautify.js(beautifyOpts))))
     .pipe($.if(/\.css$/, $.if(isProd, $.postcss(postcssOpts), $.beautify.css(beautifyOpts))))
     .pipe($.if(/\.html$/, $.if(isProd, $.htmlmin(htmlminOpts), $.beautify.html(beautifyOpts))))
@@ -178,16 +178,16 @@ const devServer = () => {
   gulp.watch(config.paths.styles, { cwd: config.src }, style)
   gulp.watch(config.paths.scripts, { cwd: config.src }, script)
   gulp.watch(config.paths.pages, { cwd: config.src }, page)
-  gulp.watch([ config.paths.images, config.paths.fonts ], { cwd: config.src }, bs.reload)
+  gulp.watch([config.paths.images, config.paths.fonts], { cwd: config.src }, bs.reload)
   gulp.watch('**', { cwd: config.public }, bs.reload)
 
   bs.init({
     notify: false,
     port: argv.port === undefined ? 2080 : argv.port,
     open: argv.open === undefined ? false : argv.open,
-    plugins: [ `bs-html-injector?files[]=${config.temp}/*.html` ],
+    plugins: [`bs-html-injector?files[]=${config.temp}/*.html`],
     server: {
-      baseDir: [ config.temp, config.src, config.public ],
+      baseDir: [config.temp, config.src, config.public],
       routes: { '/node_modules': 'node_modules' }
     }
   })
