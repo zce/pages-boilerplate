@@ -1,4 +1,9 @@
 {
-  "extends": [ "zce" ],
-  "baseBranches": [ "master", "extract", "x-pages" ]
+  "extends": [
+    "zce"
+  ],
+  "baseBranches": [
+    "master",
+    "x-pages"
+  ]
 }
