@@ -121,7 +121,6 @@ Clean the `dist` & `temp` files.
 ## Related
 
 - [zce/x-pages](https://github.com/zce/x-pages) - A fully managed gulp workflow for static page sites.
-- [zce/pages-tasks](https://github.com/zce/pages-tasks) - A preset gulp tasks for static page sites.
 
 ## Contributing
 
