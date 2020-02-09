@@ -133,7 +133,7 @@ const useref = () => {
 
   return gulp.src(config.paths.pages, { cwd: config.temp, base: config.temp })
     .pipe($.plumber())
-    .pipe($.useref({ searchPath: [config.temp, config.src, '.'] }))
+    .pipe($.useref({ searchPath: ['.', '..'] }))
     .pipe($.if(/\.js$/, $.if(isProd, $.uglify(uglifyOpts), $.beautify.js(beautifyOpts))))
     .pipe($.if(/\.css$/, $.if(isProd, $.postcss(postcssOpts), $.beautify.css(beautifyOpts))))
     .pipe($.if(/\.html$/, $.if(isProd, $.htmlmin(htmlminOpts), $.beautify.html(beautifyOpts))))
