@@ -86,8 +86,9 @@ const lint = done => {
   standard.lintFiles(config.paths.scripts, { cwd, fix: true }, done)
 }
 
-const style = () => {
-  return gulp.src(config.paths.styles, { cwd: config.src, base: config.src, sourcemaps: !isProd })
+const style = (filename) => {
+  const files = typeof filename === 'string' ? filename : config.paths.styles
+  return gulp.src(files, { cwd: config.src, base: config.src, sourcemaps: !isProd })
     .pipe($.plumber({ errorHandler: $.sass.logError }))
     .pipe($.sass.sync({ outputStyle: 'expanded', precision: 10, includePaths: ['.'] }))
     .pipe($.postcss([autoprefixer()]))
@@ -95,16 +96,18 @@ const style = () => {
     .pipe(bs.reload({ stream: true }))
 }
 
-const script = () => {
-  return gulp.src(config.paths.scripts, { cwd: config.src, base: config.src, sourcemaps: !isProd })
+const script = (filename) => {
+  const files = typeof filename === 'string' ? filename : config.paths.scripts
+  return gulp.src(files, { cwd: config.src, base: config.src, sourcemaps: !isProd })
     .pipe($.plumber())
     .pipe($.babel())
     .pipe(gulp.dest(config.temp, { sourcemaps: '.' }))
     .pipe(bs.reload({ stream: true }))
 }
 
-const page = () => {
-  return gulp.src(config.paths.pages, { cwd: config.src, base: config.src, ignore: ['{layouts,partials}/**'] })
+const page = (filename) => {
+  const files = typeof filename === 'string' ? filename : config.paths.pages
+  return gulp.src(files, { cwd: config.src, base: config.src, ignore: ['{layouts,partials}/**'] })
     .pipe($.plumber())
     .pipe($.swig({ defaults: { cache: false, locals: data } }))
     .pipe(gulp.dest(config.temp))
@@ -175,9 +178,15 @@ const upload = () => {
 }
 
 const devServer = () => {
-  gulp.watch(config.paths.styles, { cwd: config.src }, style)
-  gulp.watch(config.paths.scripts, { cwd: config.src }, script)
-  gulp.watch(config.paths.pages, { cwd: config.src }, page)
+  // gulp.watch(config.paths.styles, { cwd: config.src }, style)
+  // gulp.watch(config.paths.scripts, { cwd: config.src }, script)
+  // gulp.watch(config.paths.pages, { cwd: config.src }, page)
+  gulp.watch(config.paths.styles, { cwd: config.src })
+    .on('change', filename => style(filename))
+  gulp.watch(config.paths.scripts, { cwd: config.src })
+    .on('change', filename => script(filename))
+  gulp.watch(config.paths.pages, { cwd: config.src })
+    .on('change', filename => page(filename))
   gulp.watch([config.paths.images, config.paths.fonts], { cwd: config.src }, bs.reload)
   gulp.watch('**', { cwd: config.public }, bs.reload)
 
