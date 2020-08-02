@@ -1,9 +1,0 @@
-{
-  "extends": [
-    "zce"
-  ],
-  "baseBranches": [
-    "master",
-    "x-pages"
-  ]
-}
