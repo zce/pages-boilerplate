@@ -1,0 +1,10 @@
+{
+  "explorer.openEditors.visible": 0,
+  "files.associations": {
+    "*.html": "swig"
+  },
+  "files.exclude": {
+    "temp": true
+  },
+  "terminal.integrated.cwd": "."
+}
