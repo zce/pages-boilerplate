@@ -88,7 +88,7 @@ const lint = done => {
 
 const style = () => {
   return gulp.src(config.paths.styles, { cwd: config.src, base: config.src, sourcemaps: !isProd })
-    .pipe($.plumber({ errorHandler: $.sass.logError }))
+    .pipe($.plumber())
     .pipe($.sass.sync({ outputStyle: 'expanded', precision: 10, includePaths: ['.'] }))
     .pipe($.postcss([autoprefixer()]))
     .pipe(gulp.dest(config.temp, { sourcemaps: '.' }))
