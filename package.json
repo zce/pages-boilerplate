@@ -79,7 +79,7 @@
     "gulp-uglify": "3.0.2",
     "gulp-useref": "5.0.0",
     "minimist": "1.2.5",
-    "postcss": "8.2.4",
+    "postcss": "8.2.10",
     "standard": "16.0.3"
   },
   "engines": {
