@@ -52,7 +52,7 @@
     ]
   },
   "dependencies": {
-    "bootstrap": "5.0.0-beta1"
+    "bootstrap": "5.0.1"
   },
   "devDependencies": {
     "@babel/core": "7.12.10",
