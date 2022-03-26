@@ -78,7 +78,7 @@
     "gulp-swig": "0.9.1",
     "gulp-uglify": "3.0.2",
     "gulp-useref": "5.0.0",
-    "minimist": "1.2.5",
+    "minimist": "1.2.6",
     "postcss": "8.2.4",
     "standard": "16.0.3"
   },
