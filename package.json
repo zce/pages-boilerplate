@@ -57,7 +57,7 @@
   "devDependencies": {
     "@babel/core": "7.12.10",
     "@babel/preset-env": "7.12.11",
-    "autoprefixer": "10.2.1",
+    "autoprefixer": "10.4.16",
     "browser-sync": "2.26.13",
     "bs-html-injector": "3.0.3",
     "csscomb": "4.3.0",
